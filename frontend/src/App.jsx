@@ -40,10 +40,10 @@ function App() {
     : "#7F77DD"
 
   return (
-    <div style={{minHeight:"100vh",background:"#f8f8f6",fontFamily:"system-ui, sans-serif",padding:"2rem 1rem"}}>
+    <div style={{minHeight:"100vh",background:"#0E3386",fontFamily:"system-ui, sans-serif",padding:"2rem 1rem"}}>
       <div style={{textAlign:"center",marginBottom:"2.5rem"}}>
-        <h1 style={{fontSize:"2.5rem",fontWeight:"700",color:"#1a1a18",margin:"0 0 0.5rem"}}>MoodSync</h1>
-        <p style={{color:"#888",fontSize:"1rem",margin:0}}>Tell me how you feel. I will build your soundtrack.</p>
+      <h1 style={{fontSize:"2.5rem",fontWeight:"700",color:"#ffffff",margin:"0 0 0.5rem"}}>MoodSync</h1>
+        <p style={{color:"#ffffff",fontSize:"1rem",margin:0}}>Tell me how you feel. I will build your soundtrack.</p>
       </div>
 
       <div style={{maxWidth:"600px",margin:"0 auto 2rem",background:"#fff",border:"0.5px solid #e0e0da",borderRadius:"16px",padding:"1.5rem"}}>
@@ -52,12 +52,12 @@ function App() {
           onChange={(e) => setMood(e.target.value)}
           placeholder="How are you feeling right now?"
           rows={4}
-          style={{width:"100%",border:"0.5px solid #e0e0da",borderRadius:"10px",padding:"12px",fontSize:"15px",fontFamily:"system-ui, sans-serif",resize:"none",outline:"none",color:"#1a1a18",background:"#fafaf8",boxSizing:"border-box"}}
+          style={{width:"100%",border:"0.5px solid #e0e0da",borderRadius:"10px",padding:"12px",fontSize:"15px",fontFamily:"system-ui, sans-serif",resize:"none",outline:"none",color:"#000000",background:"#fafaf8",boxSizing:"border-box"}}
         />
         <button
           onClick={handleSubmit}
           disabled={loading || !mood.trim()}
-          style={{marginTop:"1rem",width:"100%",padding:"14px",background:loading ? "#ccc" : accentColor,color:"#fff",border:"none",borderRadius:"10px",fontSize:"15px",fontWeight:"600",cursor:loading ? "not-allowed" : "pointer"}}
+          style={{marginTop:"1rem",width:"100%",padding:"14px",background:loading ? "#ccc" : "#ff3b30",color:"#fff",border:"none",borderRadius:"10px",fontSize:"15px",fontWeight:"600",cursor:loading ? "not-allowed" : "pointer"}}
         >
           {loading ? "Analyzing your mood..." : "Build my playlist"}
         </button>
