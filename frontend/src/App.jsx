@@ -67,13 +67,11 @@ function App() {
     <div style={{
       minHeight: "100vh",
       background: "#f5f5f7",
-      fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+      fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
     }}>
 
-      {/* Top nav */}
       <div style={{
         background: "rgba(255,255,255,0.85)",
-        backdropFilter: "blur(20px)",
         borderBottom: "0.5px solid rgba(0,0,0,0.1)",
         padding: "0 2rem",
         height: "52px",
@@ -103,14 +101,12 @@ function App() {
         <span style={{fontSize:"13px", color:"#86868b"}}>AI Music for your mood</span>
       </div>
 
-      {/* Hero section */}
       <div style={{
         maxWidth: "680px",
         margin: "0 auto",
         padding: "3rem 1.5rem 1.5rem"
       }}>
 
-        {/* Title */}
         {!playlist && (
           <div style={{textAlign:"center", marginBottom:"2.5rem"}}>
             <h1 style={{
@@ -130,12 +126,11 @@ function App() {
               margin: 0,
               fontWeight: "400"
             }}>
-              Tell me how you feel and I'll build the perfect playlist.
+              Tell me how you feel and I will build the perfect playlist.
             </p>
           </div>
         )}
 
-        {/* Input card */}
         <div style={{
           background: "#ffffff",
           borderRadius: "20px",
@@ -159,7 +154,7 @@ function App() {
               border: "none",
               outline: "none",
               fontSize: "16px",
-              fontFamily: "-apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+              fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
               resize: "none",
               color: "#1d1d1f",
               background: "transparent",
@@ -199,7 +194,6 @@ function App() {
           </div>
         </div>
 
-        {/* Loading state */}
         {loading && (
           <div style={{
             textAlign: "center",
@@ -210,7 +204,7 @@ function App() {
             <div style={{
               width: "32px",
               height: "32px",
-              border: `3px solid ${accentColor}`,
+              border: "3px solid " + accentColor,
               borderTop: "3px solid transparent",
               borderRadius: "50%",
               margin: "0 auto 1rem",
@@ -220,7 +214,6 @@ function App() {
           </div>
         )}
 
-        {/* Error */}
         {error && (
           <div style={{
             background: "#fff2f2",
@@ -235,17 +228,15 @@ function App() {
           </div>
         )}
 
-        {/* Playlist results */}
         {playlist && (
           <div>
-            {/* Mood header card */}
             <div style={{
               background: "#ffffff",
               borderRadius: "20px",
               padding: "1.5rem",
               marginBottom: "1rem",
               boxShadow: "0 2px 20px rgba(0,0,0,0.06)",
-              borderLeft: `4px solid ${accentColor}`
+              borderLeft: "4px solid " + accentColor
             }}>
               <div style={{display:"flex", alignItems:"center", gap:"10px", marginBottom:"8px"}}>
                 <span style={{
@@ -280,7 +271,6 @@ function App() {
               </p>
             </div>
 
-            {/* Track count */}
             <p style={{
               fontSize: "13px",
               fontWeight: "600",
@@ -292,7 +282,6 @@ function App() {
               {playlist.tracks.length} tracks
             </p>
 
-            {/* Track list */}
             <div style={{
               background: "#ffffff",
               borderRadius: "20px",
@@ -306,18 +295,12 @@ function App() {
                   alignItems: "center",
                   gap: "12px",
                   borderBottom: i < playlist.tracks.length - 1 ? "0.5px solid #f5f5f7" : "none",
-                  transition: "background 0.15s",
                   cursor: "pointer"
                 }}
                 onMouseEnter={e => e.currentTarget.style.background = "#f9f9f9"}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                 >
-                  {/* Track number or play button */}
-                  <div style={{
-                    width: "20px",
-                    textAlign: "center",
-                    flexShrink: 0
-                  }}>
+                  <div style={{width:"20px", textAlign:"center", flexShrink:0}}>
                     {track.preview_url ? (
                       <button
                         onClick={() => handlePlay(i, track.preview_url)}
@@ -327,7 +310,6 @@ function App() {
                           cursor: "pointer",
                           padding: 0,
                           color: playingIndex === i ? accentColor : "#86868b",
-                          fontSize: "16px",
                           display: "flex",
                           alignItems: "center"
                         }}
@@ -347,7 +329,6 @@ function App() {
                     )}
                   </div>
 
-                  {/* Album art */}
                   {track.album_art && (
                     <img
                       src={track.album_art}
@@ -362,8 +343,7 @@ function App() {
                     />
                   )}
 
-                  {/* Track info */}
-                  <div style={{flex: 1, minWidth: 0}}>
+                  <div style={{flex:1, minWidth:0}}>
                     <p style={{
                       margin: "0 0 2px",
                       fontWeight: "600",
@@ -383,11 +363,10 @@ function App() {
                       overflow: "hidden",
                       textOverflow: "ellipsis"
                     }}>
-                      {track.artist} — {track.album}
+                      {track.artist} - {track.album}
                     </p>
                   </div>
 
-                  {/* Listen button */}
                   {track.spotify_url && (
                     
                       href={track.spotify_url}
@@ -413,9 +392,15 @@ function App() {
               ))}
             </div>
 
-            {/* Try another mood */}
             <button
-              onClick={() => {setPlaylist(null); setMood(""); setPlayingIndex(null); if(currentAudio){currentAudio.pause()}}}
+              onClick={() => {
+                setPlaylist(null)
+                setMood("")
+                setPlayingIndex(null)
+                if (currentAudio) {
+                  currentAudio.pause()
+                }
+              }}
               style={{
                 display: "block",
                 margin: "1.5rem auto 3rem",
