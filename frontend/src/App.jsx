@@ -13,7 +13,7 @@ function App() {
     setError(null)
     setPlaylist(null)
     try {
-      const response = await axios.post("https://moodsync-production.up.railway.app", {
+      const response = await axios.post("https://moodsync-production.up.railway.app/analyze", {
         mood: mood
       })
       setPlaylist(response.data)
