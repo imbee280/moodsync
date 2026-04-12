@@ -39,7 +39,7 @@ def get_playlist(mood_data: dict) -> dict:
             "album": track["album"]["name"],
             "album_art": track["album"]["images"][0]["url"] if track["album"]["images"] else None,
             "spotify_url": track["external_urls"]["spotify"],
-            "preview_url": track["preview_url"]
+            "preview_url": track.get("preview_url", None)
         })
 
     return {
