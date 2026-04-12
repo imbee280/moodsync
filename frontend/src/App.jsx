@@ -90,6 +90,13 @@ function App() {
                 <div style={{flex:1,minWidth:0}}>
                   <p style={{margin:"0 0 2px",fontWeight:"600",fontSize:"14px",color:"#1a1a18",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{track.name}</p>
                   <p style={{margin:0,fontSize:"13px",color:"#888"}}>{track.artist} - {track.album}</p>
+                  {track.preview_url && (
+                     <audio
+                       controls
+                       src={track.preview_url}
+                       style={{width:"100%", marginTop:"8px", height:"32px"}}
+                    />
+                  )}
                 </div>
                 {(track.spotify_url || track.music_url) && (
                   <a href={track.spotify_url || track.music_url} target="_blank" rel="noopener noreferrer" style={{background:accentColor,color:"#fff",fontSize:"12px",fontWeight:"600",padding:"6px 12px",borderRadius:"99px",textDecoration:"none",flexShrink:0}}>
