@@ -4,4 +4,4 @@ venv/
 backend/venv/
 __pycache__/
 backend/__pycache__/
-.DS_Store
+.DS_Storenode_modules/
